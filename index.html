@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Роман & Татьяна — Свадебное приглашение</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(155,28,44,0.25), transparent 35%),
+        linear-gradient(180deg, #12090b 0%, #1a0d10 45%, #12090b 100%);
+      color: #f8f4ef;
+      margin: 0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .gold {
+      color: #d4b06a;
+    }
+
+    .bordo {
+      color: #c14a5c;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center justify-center px-6 text-center">
+    <div class="max-w-4xl">
+      <p class="uppercase tracking-[0.35em] text-sm md:text-base text-rose-200 mb-6">
+        08.08 — 09.08.2026
+      </p>
+
+      <h1 class="text-6xl md:text-8xl leading-none mb-6">
+        Роман &amp; Татьяна
+      </h1>
+
+      <p class="text-xl md:text-3xl text-stone-200 mb-10">
+        Мы поженимся
+      </p>
+
+      <div class="glass rounded-3xl p-6 md:p-8 max-w-3xl mx-auto mb-10">
+        <p class="text-lg md:text-xl text-stone-100 mb-6">
+          До нашей свадьбы осталось
+        </p>
+
+        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+      </div>
+
+      <a href="#rsvp"
+         class="inline-block bg-[#9B1C2C] hover:bg-[#b22234] transition px-8 py-4 rounded-full text-white text-lg shadow-lg">
+        Подтвердить участие
+      </a>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section class="px-6 py-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-6xl mb-6 gold">Дорогие гости</h2>
+      <p class="text-lg md:text-xl text-stone-200 leading-8 max-w-3xl mx-auto">
+        Мы будем счастливы разделить с вами один из самых важных и красивых дней нашей жизни.
+        Приглашаем вас стать частью нашей истории, наполненной любовью, теплом и радостью.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="px-6 py-10">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl md:text-6xl text-center mb-12 gold">Программа</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">08.08.2026</p>
+          <h3 class="text-3xl md:text-4xl mb-4">Регистрация</h3>
+          <p class="text-stone-200 leading-7">
+            Торжественная регистрация брака и первый важный момент нашего свадебного уикенда.
+          </p>
+        </div>
+
+        <div class="glass rounded-3xl p-8">
+          <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">09.08.2026</p>
+          <h3 class="text-3xl md:text-4xl mb-4">Свадебное торжество</h3>
+          <p class="text-stone-200 leading-7">
+            Праздничный вечер, ужин, музыка, танцы и самые тёплые моменты вместе с близкими.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl md:text-6xl mb-4 gold">RSVP</h2>
+        <p class="text-stone-200 text-lg">
+          Пожалуйста, ответьте на несколько вопросов
+        </p>
+      </div>
+
+      <form class="glass rounded-3xl p-6 md:p-10 space-y-6">
+        <div>
+          <label class="block mb-2 text-stone-100">Ваше имя и фамилия</label>
+          <input type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Введите имя" />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Придёте ли вы на регистрацию 08.08.2026?</label>
+          <select class="w-full rounded-2xl px-4 py-3 bg-[#2b1519] border border-white/10 text-white outline-none">
+            <option>Да</option>
+            <option>Нет</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Будете ли вы на торжестве 09.08.2026?</label>
+          <select class="w-full rounded-2xl px-4 py-3 bg-[#2b1519] border border-white/10 text-white outline-none">
+            <option>Да</option>
+            <option>Нет</option>
+            <option>Под вопросом до 10.06.2026</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Количество человек</label>
+          <input type="number" min="1" value="1" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Предпочтения по еде</label>
+          <select class="w-full rounded-2xl px-4 py-3 bg-[#2b1519] border border-white/10 text-white outline-none">
+            <option>Нет особых предпочтений</option>
+            <option>Не ем мясо</option>
+            <option>Не ем рыбу</option>
+            <option>Вегетарианец</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Какой алкоголь вы предпочитаете?</label>
+          <select class="w-full rounded-2xl px-4 py-3 bg-[#2b1519] border border-white/10 text-white outline-none">
+            <option>Красное вино</option>
+            <option>Белое вино</option>
+            <option>Шампанское</option>
+            <option>Виски / коньяк</option>
+            <option>Водка</option>
+            <option>Не буду пить алкоголь</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Песня, под которую хотите потанцевать</label>
+          <input type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Напишите песню" />
+        </div>
+
+        <div>
+          <label class="block mb-2 text-stone-100">Комментарий или пожелания</label>
+          <textarea rows="4" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Ваш комментарий"></textarea>
+        </div>
+
+        <button type="button"
+                onclick="alert('Форма пока без отправки. Следующим шагом подключим отправку ответов.')"
+                class="w-full bg-[#9B1C2C] hover:bg-[#b22234] transition px-8 py-4 rounded-full text-white text-lg">
+          Отправить ответ
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const weddingDate = new Date("2026-08-09T00:00:00").getTime();
+
+    function createCountdownItem(value, label) {
+      return `
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-4 md:p-6">
+          <div class="text-3xl md:text-5xl font-semibold text-[#d4b06a]">${value}</div>
+          <div class="text-sm uppercase tracking-[0.2em] text-stone-300 mt-2">${label}</div>
+        </div>
+      `;
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+      const countdown = document.getElementById("countdown");
+
+      if (distance <= 0) {
+        countdown.innerHTML = `
+          <div class="col-span-2 md:col-span-4 text-center text-2xl text-rose-200">
+            Свадьба уже состоялась ❤️
+          </div>
+        `;
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML =
+        createCountdownItem(days, "дней") +
+        createCountdownItem(hours, "часов") +
+        createCountdownItem(minutes, "минут") +
+        createCountdownItem(seconds, "секунд");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
