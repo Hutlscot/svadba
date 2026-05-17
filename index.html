@@ -42,40 +42,140 @@
     html {
       scroll-behavior: smooth;
     }
+
+    input,
+    select,
+    textarea,
+    button {
+      font-family: 'Inter', sans-serif;
+    }
+
     .custom-select {
-  width: 100%;
-  border-radius: 1rem;
-  padding: 0.95rem 1rem;
-  padding-right: 3rem;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f8f4ef;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  transition: all 0.2s ease;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M5 7.5L10 12.5L15 7.5' stroke='%23d4b06a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 18px;
-}
+      width: 100%;
+      border-radius: 1rem;
+      padding: 0.95rem 1rem;
+      padding-right: 3rem;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f8f4ef;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      transition: all 0.2s ease;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'><path d='M5 7.5L10 12.5L15 7.5' stroke='%23d4b06a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 18px;
+    }
 
-.custom-select:hover {
-  border-color: rgba(212, 176, 106, 0.35);
-  background-color: rgba(255, 255, 255, 0.10);
-}
+    .custom-select:hover {
+      border-color: rgba(212, 176, 106, 0.35);
+      background-color: rgba(255, 255, 255, 0.10);
+    }
 
-.custom-select:focus {
-  border-color: rgba(212, 176, 106, 0.75);
-  box-shadow: 0 0 0 4px rgba(212, 176, 106, 0.12);
-  background-color: rgba(255, 255, 255, 0.12);
-}
+    .custom-select:focus {
+      border-color: rgba(212, 176, 106, 0.75);
+      box-shadow: 0 0 0 4px rgba(212, 176, 106, 0.12);
+      background-color: rgba(255, 255, 255, 0.12);
+    }
 
-.custom-select option {
-  background: #241316;
-  color: #f8f4ef;
-}
+    .custom-select option {
+      background: #241316;
+      color: #f8f4ef;
+    }
+
+    .custom-dropdown {
+      position: relative;
+    }
+
+    .custom-dropdown-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-radius: 1rem;
+      padding: 0.95rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #f8f4ef;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .custom-dropdown-trigger:hover {
+      border-color: rgba(212, 176, 106, 0.35);
+      background: rgba(255,255,255,0.11);
+    }
+
+    .custom-dropdown.open .custom-dropdown-trigger {
+      border-color: rgba(212, 176, 106, 0.65);
+      box-shadow: 0 0 0 4px rgba(212, 176, 106, 0.10);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .custom-dropdown-arrow {
+      color: #d4b06a;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .custom-dropdown-arrow-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .custom-dropdown.open .custom-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .custom-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: rgba(28, 15, 18, 0.98);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 1rem;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+      z-index: 50;
+    }
+
+    .custom-dropdown.open .custom-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .custom-dropdown-option {
+      width: 100%;
+      text-align: left;
+      padding: 0.95rem 1rem;
+      background: transparent;
+      border: none;
+      color: #f8f4ef;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .custom-dropdown-option:hover {
+      background: rgba(212, 176, 106, 0.10);
+      color: #d4b06a;
+    }
   </style>
 </head>
 <body>
@@ -162,12 +262,26 @@
           <input type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Введите имя" />
         </div>
 
-        <div>
+        <div class="custom-dropdown-wrap">
           <label class="block mb-2 text-stone-100">Придёте ли вы на регистрацию 08.08.2026?</label>
-          <select class="custom-select">
-            <option>Да</option>
-            <option>Нет</option>
-          </select>
+
+          <div class="custom-dropdown" data-dropdown>
+            <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
+              <span data-dropdown-value>Выберите вариант</span>
+              <span class="custom-dropdown-arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
+                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+
+            <div class="custom-dropdown-menu" data-dropdown-menu>
+              <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
+              <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
+            </div>
+
+            <input type="hidden" name="registration_attendance" value="" data-dropdown-input>
+          </div>
         </div>
 
         <div>
@@ -265,6 +379,38 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    document.querySelectorAll('[data-dropdown]').forEach(dropdown => {
+      const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+      const valueText = dropdown.querySelector('[data-dropdown-value]');
+      const input = dropdown.querySelector('[data-dropdown-input]');
+      const options = dropdown.querySelectorAll('.custom-dropdown-option');
+
+      trigger.addEventListener('click', () => {
+        document.querySelectorAll('[data-dropdown]').forEach(other => {
+          if (other !== dropdown) other.classList.remove('open');
+        });
+
+        dropdown.classList.toggle('open');
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          const value = option.dataset.value;
+          valueText.textContent = value;
+          input.value = value;
+          dropdown.classList.remove('open');
+        });
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('[data-dropdown]').forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
   </script>
 
 </body>
