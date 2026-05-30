@@ -445,11 +445,11 @@
         </p>
       </div>
 
-      <form name="guest-rsvp"
+      <form id="guest-rsvp-form"
+            name="guest-rsvp"
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            action="/thank-you.html"
             class="glass rounded-3xl p-6 md:p-10 space-y-6">
         <input type="hidden" name="form-name" value="guest-rsvp" />
 
@@ -666,6 +666,34 @@
           dropdown.classList.remove('open');
         }
       });
+    });
+
+    const form = document.getElementById('guest-rsvp-form');
+
+    function encode(data) {
+      return new URLSearchParams(data).toString();
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode(formData)
+        });
+
+        if (response.ok) {
+          window.location.href = '/thank-you.html';
+        } else {
+          alert('Не удалось отправить анкету. Попробуйте ещё раз.');
+        }
+      } catch (error) {
+        alert('Произошла ошибка при отправке. Проверьте интернет и попробуйте снова.');
+      }
     });
   </script>
 
