@@ -190,6 +190,10 @@
       color: #d4b06a;
     }
 
+    .hidden-spam {
+      display: none;
+    }
+
     @media (max-width: 767px) {
       .timeline-card::before {
         display: none;
@@ -430,10 +434,21 @@
         </p>
       </div>
 
-      <form class="glass rounded-3xl p-6 md:p-10 space-y-6">
+      <form name="guest-rsvp"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            action="/thank-you"
+            class="glass rounded-3xl p-6 md:p-10 space-y-6">
+        <input type="hidden" name="form-name" value="guest-rsvp" />
+
+        <p class="hidden-spam">
+          <label>Не заполняйте это поле: <input name="bot-field" /></label>
+        </p>
+
         <div>
           <label class="block mb-2 text-stone-100">Ваше имя и фамилия</label>
-          <input type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Например: Иван Иванов" />
+          <input name="full_name" type="text" required class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Например: Иван Иванов" />
         </div>
 
         <div>
@@ -451,7 +466,7 @@
               <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
               <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
             </div>
-            <input type="hidden" name="registration_attendance" value="" data-dropdown-input>
+            <input type="hidden" name="registration_attendance" value="" data-dropdown-input required>
           </div>
         </div>
 
@@ -471,7 +486,7 @@
               <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
               <button type="button" class="custom-dropdown-option" data-value="Под вопросом до 10.06.2026">Под вопросом до 10.06.2026</button>
             </div>
-            <input type="hidden" name="celebration_attendance" value="" data-dropdown-input>
+            <input type="hidden" name="celebration_attendance" value="" data-dropdown-input required>
           </div>
         </div>
 
@@ -522,16 +537,15 @@
 
         <div>
           <label class="block mb-2 text-stone-100">Песня, под которую хотите потанцевать</label>
-          <input type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Напишите песню" />
+          <input name="song" type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Напишите песню" />
         </div>
 
         <div>
           <label class="block mb-2 text-stone-100">Комментарий или пожелания</label>
-          <textarea rows="4" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Ваш комментарий"></textarea>
+          <textarea name="comment" rows="4" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Ваш комментарий"></textarea>
         </div>
 
-        <button type="button"
-                onclick="alert('Форма пока без отправки. Следующим шагом подключим отправку ответов.')"
+        <button type="submit"
                 class="w-full px-10 py-4 rounded-full text-white text-lg tracking-wide
                        bg-gradient-to-r from-[#7f1221] via-[#9B1C2C] to-[#7f1221]
                        border border-[#d4b06a]/30
