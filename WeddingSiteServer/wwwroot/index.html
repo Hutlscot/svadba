@@ -190,10 +190,6 @@
       color: #d4b06a;
     }
 
-    .hidden-spam {
-      display: none;
-    }
-
     @media (max-width: 767px) {
       .timeline-card::before {
         display: none;
@@ -220,17 +216,6 @@
   </style>
 </head>
 <body>
-
-  <!-- СКРЫТАЯ ТЕХНИЧЕСКАЯ ФОРМА ДЛЯ NETLIFY -->
-  <form name="guest-rsvp" netlify hidden>
-    <input type="text" name="full_name" />
-    <input type="text" name="registration_attendance" />
-    <input type="text" name="celebration_attendance" />
-    <input type="text" name="food_preferences" />
-    <input type="text" name="alcohol_preferences" />
-    <input type="text" name="song" />
-    <textarea name="comment"></textarea>
-  </form>
 
   <!-- HERO -->
   <section class="min-h-screen flex items-center justify-center px-6 text-center">
@@ -434,17 +419,9 @@
       </div>
 
       <form id="guest-rsvp-form"
-            name="guest-rsvp"
             method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            action="/api/rsvp"
             class="glass rounded-3xl p-6 md:p-10 space-y-6">
-        <input type="hidden" name="form-name" value="guest-rsvp" />
-
-        <p class="hidden-spam">
-          <label>Не заполняйте это поле: <input name="bot-field" /></label>
-        </p>
-
         <div>
           <label class="block mb-2 text-stone-100">Ваше имя и фамилия</label>
           <input name="full_name" type="text" required class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Например: Иван Иванов" />
@@ -658,20 +635,15 @@
 
     const form = document.getElementById('guest-rsvp-form');
 
-    function encode(data) {
-      return new URLSearchParams(data).toString();
-    }
-
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const formData = new FormData(form);
 
       try {
-        const response = await fetch('/', {
+        const response = await fetch('/api/rsvp', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode(formData)
+          body: formData
         });
 
         if (response.ok) {
