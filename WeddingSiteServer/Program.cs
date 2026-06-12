@@ -7,6 +7,8 @@ builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
+app.Urls.Add("http://0.0.0.0:5080");
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
