@@ -1,565 +1,568 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Роман & Татьяна — Свадебное приглашение</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Роман & Татьяна — Свадебное приглашение</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(155,28,44,0.25), transparent 35%),
-        linear-gradient(180deg, #12090b 0%, #1a0d10 45%, #12090b 100%);
-      color: #f8f4ef;
-      margin: 0;
-    }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, rgba(155,28,44,0.25), transparent 35%), linear-gradient(180deg, #12090b 0%, #1a0d10 45%, #12090b 100%);
+            color: #f8f4ef;
+            margin: 0;
+        }
 
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
-    }
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
 
-    .glass {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
+        .glass {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    .gold {
-      color: #d4b06a;
-    }
+        .gold {
+            color: #d4b06a;
+        }
 
-    .palette-dot {
-      width: 44px;
-      height: 44px;
-      border-radius: 9999px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      border: 2px solid rgba(255,255,255,0.18);
-    }
+        .palette-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            border: 2px solid rgba(255,255,255,0.18);
+        }
 
-    .timeline-card {
-      position: relative;
-      overflow: hidden;
-    }
+        .timeline-card {
+            position: relative;
+            overflow: hidden;
+        }
 
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      left: 28px;
-      top: 28px;
-      bottom: 28px;
-      width: 1px;
-      background: linear-gradient(to bottom, rgba(212,176,106,0.45), rgba(212,176,106,0.08));
-    }
+            .timeline-card::before {
+                content: "";
+                position: absolute;
+                left: 28px;
+                top: 28px;
+                bottom: 28px;
+                width: 1px;
+                background: linear-gradient(to bottom, rgba(212,176,106,0.45), rgba(212,176,106,0.08));
+            }
 
-    .timeline-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 9999px;
-      background: #d4b06a;
-      box-shadow: 0 0 0 6px rgba(212,176,106,0.12);
-      position: relative;
-      z-index: 2;
-      margin-top: 8px;
-    }
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 9999px;
+            background: #d4b06a;
+            box-shadow: 0 0 0 6px rgba(212,176,106,0.12);
+            position: relative;
+            z-index: 2;
+            margin-top: 8px;
+        }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 140px 24px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 140px 24px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
 
-    .timeline-time {
-      text-align: right;
-      padding-left: 0;
-    }
+        .timeline-time {
+            text-align: right;
+            padding-left: 0;
+        }
 
-    .map-card iframe {
-      width: 100%;
-      height: 280px;
-      border: 0;
-      border-radius: 1.5rem;
-    }
+        .map-card iframe {
+            width: 100%;
+            height: 280px;
+            border: 0;
+            border-radius: 1.5rem;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    input,
-    textarea,
-    button {
-      font-family: 'Inter', sans-serif;
-    }
+        input,
+        textarea,
+        button {
+            font-family: 'Inter', sans-serif;
+        }
 
-    .custom-dropdown {
-      position: relative;
-    }
+        .custom-dropdown {
+            position: relative;
+        }
 
-    .custom-dropdown-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-radius: 1rem;
-      padding: 0.95rem 1rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #f8f4ef;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      text-align: left;
-    }
+        .custom-dropdown-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-radius: 1rem;
+            padding: 0.95rem 1rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #f8f4ef;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: left;
+        }
 
-    .custom-dropdown-trigger:hover {
-      border-color: rgba(212, 176, 106, 0.35);
-      background: rgba(255,255,255,0.11);
-    }
+            .custom-dropdown-trigger:hover {
+                border-color: rgba(212, 176, 106, 0.35);
+                background: rgba(255,255,255,0.11);
+            }
 
-    .custom-dropdown.open .custom-dropdown-trigger {
-      border-color: rgba(212, 176, 106, 0.65);
-      box-shadow: 0 0 0 4px rgba(212, 176, 106, 0.10);
-      background: rgba(255,255,255,0.12);
-    }
+        .custom-dropdown.open .custom-dropdown-trigger {
+            border-color: rgba(212, 176, 106, 0.65);
+            box-shadow: 0 0 0 4px rgba(212, 176, 106, 0.10);
+            background: rgba(255,255,255,0.12);
+        }
 
-    .custom-dropdown-arrow {
-      color: #d4b06a;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
+        .custom-dropdown-arrow {
+            color: #d4b06a;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
 
-    .custom-dropdown-arrow-icon {
-      width: 20px;
-      height: 20px;
-      display: block;
-    }
+        .custom-dropdown-arrow-icon {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
 
-    .custom-dropdown.open .custom-dropdown-arrow {
-      transform: rotate(180deg);
-    }
+        .custom-dropdown.open .custom-dropdown-arrow {
+            transform: rotate(180deg);
+        }
 
-    .custom-dropdown-menu {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      right: 0;
-      background: rgba(28, 15, 18, 0.98);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 1rem;
-      overflow: hidden;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-      opacity: 0;
-      transform: translateY(-6px);
-      pointer-events: none;
-      transition: all 0.2s ease;
-      z-index: 50;
-    }
+        .custom-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: rgba(28, 15, 18, 0.98);
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 1rem;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+            opacity: 0;
+            transform: translateY(-6px);
+            pointer-events: none;
+            transition: all 0.2s ease;
+            z-index: 50;
+        }
 
-    .custom-dropdown.open .custom-dropdown-menu {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+        .custom-dropdown.open .custom-dropdown-menu {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
 
-    .custom-dropdown-option {
-      width: 100%;
-      text-align: left;
-      padding: 0.95rem 1rem;
-      background: transparent;
-      border: none;
-      color: #f8f4ef;
-      cursor: pointer;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
+        .custom-dropdown-option {
+            width: 100%;
+            text-align: left;
+            padding: 0.95rem 1rem;
+            background: transparent;
+            border: none;
+            color: #f8f4ef;
+            cursor: pointer;
+            transition: background 0.18s ease, color 0.18s ease;
+        }
 
-    .custom-dropdown-option:hover {
-      background: rgba(212, 176, 106, 0.10);
-      color: #d4b06a;
-    }
+            .custom-dropdown-option:hover {
+                background: rgba(212, 176, 106, 0.10);
+                color: #d4b06a;
+            }
 
-    @media (max-width: 767px) {
-      .timeline-card::before {
-        display: none;
-      }
+        .submit-disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
 
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-      }
+        @media (max-width: 767px) {
+            .timeline-card::before {
+                display: none;
+            }
 
-      .timeline-time {
-        text-align: left;
-        padding-left: 0;
-      }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
 
-      .timeline-dot-wrap {
-        display: none;
-      }
+            .timeline-time {
+                text-align: left;
+                padding-left: 0;
+            }
 
-      .map-card iframe {
-        height: 240px;
-      }
-    }
-  </style>
+            .timeline-dot-wrap {
+                display: none;
+            }
+
+            .map-card iframe {
+                height: 240px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center justify-center px-6 text-center">
-    <div class="max-w-4xl">
-      <p class="uppercase tracking-[0.35em] text-sm md:text-base text-rose-200 mb-4">
-        Свадьба
-      </p>
-
-      <h1 class="text-6xl md:text-8xl leading-none mb-6">
-        Роман &amp; Татьяна
-      </h1>
-
-      <p class="uppercase tracking-[0.35em] text-sm md:text-base text-rose-200 mb-8">
-        08.08 — 09.08.2026
-      </p>
-
-      <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto mb-8"></div>
-
-      <div class="glass rounded-3xl p-6 md:p-8 max-w-3xl mx-auto mb-10">
-        <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INVITATION -->
-  <section class="px-6 pb-8">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-4xl md:text-6xl gold mb-10">Приглашение</h2>
-
-      <div class="glass rounded-3xl p-8 md:p-12 max-w-3xl mx-auto">
-        <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Дорогой гость</p>
-        <h3 class="text-3xl md:text-5xl mb-8">Мы будем рады видеть тебя на нашей свадьбе</h3>
-
-        <div class="text-stone-200 text-lg md:text-xl leading-9 max-w-2xl mx-auto space-y-6">
-          <p>
-            Совсем скоро в нашей жизни состоится самый важный и счастливый день.
-          </p>
-
-          <p>
-            Приглашаем вас стать частью этого красивого события и разделить с нами радость свадебного уикенда.
-          </p>
-
-          <div class="pt-4 space-y-6">
-            <div>
-              <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-2">08.08.2026</p>
-              <p class="text-2xl md:text-3xl gold mb-2">Регистрация</p>
-              <p>16:00 · Ленина, 83</p>
-            </div>
-
-            <div>
-              <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-2">09.08.2026</p>
-              <p class="text-2xl md:text-3xl gold mb-2">Банкет</p>
-              <p>16:00 · Синий утёс, 62</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto my-10"></div>
-
-        <div class="max-w-2xl mx-auto">
-          <p class="text-stone-200 text-lg md:text-xl leading-9 mb-8">
-            Будем благодарны, если при выборе нарядов на наше торжество вы придержитесь следующей палитры.
-            Но это совсем не обязательно — главное, чтобы вы были рядом с нами в этот день.
-          </p>
-
-          <div class="flex items-center justify-center gap-4 flex-wrap">
-            <div class="palette-dot" style="background:#8b001d;"></div>
-            <div class="palette-dot" style="background:#f5b5d3;"></div>
-            <div class="palette-dot" style="background:#d2a587;"></div>
-            <div class="palette-dot" style="background:#7a4c34;"></div>
-            <div class="palette-dot" style="background:#1d1d1d;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAM -->
-  <section class="px-6 py-10">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-6xl gold mb-4">Свадебное расписание</h2>
-        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto"></div>
-      </div>
-
-      <div class="glass timeline-card rounded-3xl p-6 md:p-10 space-y-10">
-        <div class="timeline-item">
-          <div class="timeline-time">
-            <p class="text-2xl md:text-3xl gold leading-none">16:00</p>
-            <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">08.08.2026</p>
-          </div>
-          <div class="timeline-dot-wrap flex justify-center">
-            <div class="timeline-dot"></div>
-          </div>
-          <div>
-            <h3 class="text-3xl md:text-4xl mb-2">Торжественная регистрация брака</h3>
-            <p class="text-rose-200 text-lg mb-4">Ленина, 83</p>
-            <p class="text-stone-300 leading-8">
-              У нас будет две церемонии, и мы понимаем, как непросто везти цветы с собой. Чтобы вам было легче, а нам — радостнее, пожалуйста, не покупайте цветы ни в ЗАГС, ни на банкет. Лучшим подарком для нас будет конверт с тёплыми пожеланиями или просто ваше присутствие.
+    <!-- HERO -->
+    <section class="min-h-screen flex items-center justify-center px-6 text-center">
+        <div class="max-w-4xl">
+            <p class="uppercase tracking-[0.35em] text-sm md:text-base text-rose-200 mb-4">
+                Свадьба
             </p>
-          </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-time">
-            <p class="text-2xl md:text-3xl gold leading-none">16:30</p>
-            <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">08.08.2026</p>
-          </div>
-          <div class="timeline-dot-wrap flex justify-center">
-            <div class="timeline-dot"></div>
-          </div>
-          <div>
-            <h3 class="text-3xl md:text-4xl mb-2">Фотосессия после ЗАГСа</h3>
-            <p class="text-rose-200 text-lg mb-4">Ленина, 83</p>
-            <p class="text-stone-300 leading-8">
-              После ЗАГСа сфотографируемся на память.
+            <h1 class="text-6xl md:text-8xl leading-none mb-6">
+                Роман &amp; Татьяна
+            </h1>
+
+            <p class="uppercase tracking-[0.35em] text-sm md:text-base text-rose-200 mb-8">
+                08.08 — 09.08.2026
             </p>
-          </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-time">
-            <p class="text-2xl md:text-3xl gold leading-none">15:30</p>
-            <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">09.08.2026</p>
-          </div>
-          <div class="timeline-dot-wrap flex justify-center">
-            <div class="timeline-dot"></div>
-          </div>
-          <div>
-            <h3 class="text-3xl md:text-4xl mb-2">Праздничный банкет</h3>
-            <p class="text-rose-200 text-lg mb-4">Синий утёс, 62</p>
-            <p class="text-stone-300 leading-8">
-              Здесь пройдёт наш праздничный банкет. Дорога до зала самостоятельная, организованный трансфер не планируется.
-            </p>
-          </div>
-        </div>
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto mb-8"></div>
 
-        <div class="timeline-item">
-          <div class="timeline-time">
-            <p class="text-2xl md:text-3xl gold leading-none">23:50</p>
-            <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">09.08.2026</p>
-          </div>
-          <div class="timeline-dot-wrap flex justify-center">
-            <div class="timeline-dot"></div>
-          </div>
-          <div>
-            <h3 class="text-3xl md:text-4xl mb-2">Окончание праздничного дня</h3>
-            <p class="text-stone-300 leading-8">
-              Даже такой прекрасный день когда-то подойдёт к концу. До 23:50 подъедет автобус и развезёт всех гостей по точкам города.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAPS -->
-  <section class="px-6 py-10">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-6xl gold mb-4">Как добраться</h2>
-        <div class="w-32 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto"></div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="glass rounded-3xl p-4 md:p-6 map-card">
-          <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Локация 1</p>
-          <h3 class="text-3xl md:text-4xl mb-2">ЗАГС</h3>
-          <p class="text-stone-300 mb-6">г. Томск, ул. Ленина, 83</p>
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=84.950371%2C56.477815&mode=search&oid=1007167822&ol=biz&utm_source=share&z=16.77"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        
-        <div class="glass rounded-3xl p-4 md:p-6 map-card">
-          <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Локация 2</p>
-          <h3 class="text-3xl md:text-4xl mb-2">Банкетный зал</h3>
-          <p class="text-stone-300 mb-6">г. Томск, Синий утёс, 62</p>
-          <iframe
-            src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=84.933509%2C56.341528&mode=whatshere&tab=services&whatshere%5Bpoint%5D=84.933509%2C56.341528&whatshere%5Bzoom%5D=17&z=16"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUEST FORM -->
-  <section id="rsvp" class="px-6 py-20">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl md:text-6xl mb-4 gold">Анкета гостя</h2>
-        <p class="text-stone-200 text-lg">
-          Пожалуйста, ответьте на несколько вопросов
-        </p>
-      </div>
-
-      <form id="guest-rsvp-form"
-            method="POST"
-            action="/api/rsvp"
-            class="glass rounded-3xl p-6 md:p-10 space-y-6">
-        <div>
-          <label class="block mb-2 text-stone-100">Ваше имя и фамилия</label>
-          <input name="full_name" type="text" required class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Например: Иван Иванов" />
-        </div>
-
-        <div>
-          <label class="block mb-2 text-stone-100">Придёте ли вы на регистрацию 08.08.2026?</label>
-          <div class="custom-dropdown" data-dropdown>
-            <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
-              <span data-dropdown-value>Выберите вариант</span>
-              <span class="custom-dropdown-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="custom-dropdown-menu" data-dropdown-menu>
-              <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
-              <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
+            <div class="glass rounded-3xl p-6 md:p-8 max-w-3xl mx-auto mb-10">
+                <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
             </div>
-            <input type="hidden" name="registration_attendance" value="" data-dropdown-input required>
-          </div>
         </div>
+    </section>
 
-        <div>
-          <label class="block mb-2 text-stone-100">Будете ли вы на торжестве 09.08.2026?</label>
-          <div class="custom-dropdown" data-dropdown>
-            <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
-              <span data-dropdown-value>Выберите вариант</span>
-              <span class="custom-dropdown-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="custom-dropdown-menu" data-dropdown-menu>
-              <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
-              <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
+    <!-- INVITATION -->
+    <section class="px-6 pb-8">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl gold mb-10">Приглашение</h2>
+
+            <div class="glass rounded-3xl p-8 md:p-12 max-w-3xl mx-auto">
+                <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Дорогой гость</p>
+                <h3 class="text-3xl md:text-5xl mb-8">Мы будем рады видеть тебя на нашей свадьбе</h3>
+
+                <div class="text-stone-200 text-lg md:text-xl leading-9 max-w-2xl mx-auto space-y-6">
+                    <p>
+                        Совсем скоро в нашей жизни состоится самый важный и счастливый день.
+                    </p>
+
+                    <p>
+                        Приглашаем вас стать частью этого красивого события и разделить с нами радость свадебного уикенда.
+                    </p>
+
+                    <div class="pt-4 space-y-6">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-2">08.08.2026</p>
+                            <p class="text-2xl md:text-3xl gold mb-2">Регистрация</p>
+                            <p>16:00 · Ленина, 83</p>
+                        </div>
+
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-2">09.08.2026</p>
+                            <p class="text-2xl md:text-3xl gold mb-2">Банкет</p>
+                            <p>16:00 · Синий утёс, 62</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto my-10"></div>
+
+                <div class="max-w-2xl mx-auto">
+                    <p class="text-stone-200 text-lg md:text-xl leading-9 mb-8">
+                        Будем благодарны, если при выборе нарядов на наше торжество вы придержитесь следующей палитры.
+                        Но это совсем не обязательно — главное, чтобы вы были рядом с нами в этот день.
+                    </p>
+
+                    <div class="flex items-center justify-center gap-4 flex-wrap">
+                        <div class="palette-dot" style="background:#8b001d;"></div>
+                        <div class="palette-dot" style="background:#f5b5d3;"></div>
+                        <div class="palette-dot" style="background:#d2a587;"></div>
+                        <div class="palette-dot" style="background:#7a4c34;"></div>
+                        <div class="palette-dot" style="background:#1d1d1d;"></div>
+                    </div>
+                </div>
             </div>
-            <input type="hidden" name="celebration_attendance" value="" data-dropdown-input required>
-          </div>
         </div>
+    </section>
 
-        <div>
-          <label class="block mb-2 text-stone-100">Предпочтения по еде</label>
-          <div class="custom-dropdown" data-dropdown>
-            <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
-              <span data-dropdown-value>Выберите вариант</span>
-              <span class="custom-dropdown-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="custom-dropdown-menu" data-dropdown-menu>
-              <button type="button" class="custom-dropdown-option" data-value="Нет особых предпочтений">Нет особых предпочтений</button>
-              <button type="button" class="custom-dropdown-option" data-value="Не ем мясо">Не ем мясо</button>
-              <button type="button" class="custom-dropdown-option" data-value="Не ем рыбу">Не ем рыбу</button>
-              <button type="button" class="custom-dropdown-option" data-value="Вегетарианец">Вегетарианец</button>
+    <!-- PROGRAM -->
+    <section class="px-6 py-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl gold mb-4">Свадебное расписание</h2>
+                <div class="w-32 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto"></div>
             </div>
-            <input type="hidden" name="food_preferences" value="" data-dropdown-input>
-          </div>
-        </div>
 
-        <div>
-          <label class="block mb-2 text-stone-100">Какой алкоголь вы предпочитаете?</label>
-          <div class="custom-dropdown" data-dropdown>
-            <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
-              <span data-dropdown-value>Выберите вариант</span>
-              <span class="custom-dropdown-arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
-                  <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
-            <div class="custom-dropdown-menu" data-dropdown-menu>
-              <button type="button" class="custom-dropdown-option" data-value="Красное вино">Красное вино</button>
-              <button type="button" class="custom-dropdown-option" data-value="Белое вино">Белое вино</button>
-              <button type="button" class="custom-dropdown-option" data-value="Шампанское">Шампанское</button>
-              <button type="button" class="custom-dropdown-option" data-value="Пиво">Пиво</button>
-              <button type="button" class="custom-dropdown-option" data-value="Виски / коньяк">Виски / коньяк</button>
-              <button type="button" class="custom-dropdown-option" data-value="Водка">Водка</button>
-              <button type="button" class="custom-dropdown-option" data-value="Не буду пить алкоголь">Не буду пить алкоголь</button>
+            <div class="glass timeline-card rounded-3xl p-6 md:p-10 space-y-10">
+                <div class="timeline-item">
+                    <div class="timeline-time">
+                        <p class="text-2xl md:text-3xl gold leading-none">16:00</p>
+                        <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">08.08.2026</p>
+                    </div>
+                    <div class="timeline-dot-wrap flex justify-center">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl md:text-4xl mb-2">Торжественная регистрация брака</h3>
+                        <p class="text-rose-200 text-lg mb-4">Ленина, 83</p>
+                        <p class="text-stone-300 leading-8">
+                            У нас будет две церемонии, и мы понимаем, как непросто везти цветы с собой. Чтобы вам было легче, а нам — радостнее, пожалуйста, не покупайте цветы ни в ЗАГС, ни на банкет. Лучшим подарком для нас будет конверт с тёплыми пожеланиями или просто ваше присутствие.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">
+                        <p class="text-2xl md:text-3xl gold leading-none">16:30</p>
+                        <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">08.08.2026</p>
+                    </div>
+                    <div class="timeline-dot-wrap flex justify-center">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl md:text-4xl mb-2">Фотосессия после ЗАГСа</h3>
+                        <p class="text-rose-200 text-lg mb-4">Ленина, 83</p>
+                        <p class="text-stone-300 leading-8">
+                            После ЗАГСа сфотографируемся на память.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">
+                        <p class="text-2xl md:text-3xl gold leading-none">15:30</p>
+                        <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">09.08.2026</p>
+                    </div>
+                    <div class="timeline-dot-wrap flex justify-center">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl md:text-4xl mb-2">Праздничный банкет</h3>
+                        <p class="text-rose-200 text-lg mb-4">Синий утёс, 62</p>
+                        <p class="text-stone-300 leading-8">
+                            Здесь пройдёт наш праздничный банкет. Дорога до зала самостоятельная, организованный трансфер не планируется.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">
+                        <p class="text-2xl md:text-3xl gold leading-none">23:50</p>
+                        <p class="text-sm uppercase tracking-[0.2em] text-rose-200 mt-2">09.08.2026</p>
+                    </div>
+                    <div class="timeline-dot-wrap flex justify-center">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl md:text-4xl mb-2">Окончание праздничного дня</h3>
+                        <p class="text-stone-300 leading-8">
+                            Даже такой прекрасный день когда-то подойдёт к концу. До 23:50 подъедет автобус и развезёт всех гостей по точкам города.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <input type="hidden" name="alcohol_preferences" value="" data-dropdown-input>
-          </div>
         </div>
+    </section>
 
-        <div>
-          <label class="block mb-2 text-stone-100">Песня, под которую хотите потанцевать</label>
-          <input name="song" type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Напишите песню" />
+    <!-- MAPS -->
+    <section class="px-6 py-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl gold mb-4">Как добраться</h2>
+                <div class="w-32 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass rounded-3xl p-4 md:p-6 map-card">
+                    <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Локация 1</p>
+                    <h3 class="text-3xl md:text-4xl mb-2">ЗАГС</h3>
+                    <p class="text-stone-300 mb-6">г. Томск, ул. Ленина, 83</p>
+                    <iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=84.950371%2C56.477815&mode=search&oid=1007167822&ol=biz&utm_source=share&z=16.77"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div class="glass rounded-3xl p-4 md:p-6 map-card">
+                    <p class="text-sm uppercase tracking-[0.25em] text-rose-200 mb-3">Локация 2</p>
+                    <h3 class="text-3xl md:text-4xl mb-2">Банкетный зал</h3>
+                    <p class="text-stone-300 mb-6">г. Томск, Синий утёс, 62</p>
+                    <iframe src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=84.933509%2C56.341528&mode=whatshere&tab=services&whatshere%5Bpoint%5D=84.933509%2C56.341528&whatshere%5Bzoom%5D=17&z=16"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
-          <label class="block mb-2 text-stone-100">Комментарий или пожелания</label>
-          <textarea name="comment" rows="4" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Ваш комментарий"></textarea>
-        </div>
+    <!-- GUEST FORM -->
+    <section id="rsvp" class="px-6 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-6xl mb-4 gold">Анкета гостя</h2>
+                <p class="text-stone-200 text-lg">
+                    Пожалуйста, ответьте на несколько вопросов
+                </p>
+            </div>
 
-        <button type="submit"
-                class="w-full px-10 py-4 rounded-full text-white text-lg tracking-wide
+            <form id="guest-rsvp-form"
+                  method="POST"
+                  action="/api/rsvp"
+                  class="glass rounded-3xl p-6 md:p-10 space-y-6">
+                <div>
+                    <label class="block mb-2 text-stone-100">Ваше имя и фамилия</label>
+                    <input name="full_name" type="text" required class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Например: Иван Иванов" />
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Придёте ли вы на регистрацию 08.08.2026?</label>
+                    <div class="custom-dropdown" data-dropdown>
+                        <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
+                            <span data-dropdown-value>Выберите вариант</span>
+                            <span class="custom-dropdown-arrow" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="custom-dropdown-menu" data-dropdown-menu>
+                            <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
+                        </div>
+                        <input type="hidden" name="registration_attendance" value="" data-dropdown-input required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Будете ли вы на торжестве 09.08.2026?</label>
+                    <div class="custom-dropdown" data-dropdown>
+                        <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
+                            <span data-dropdown-value>Выберите вариант</span>
+                            <span class="custom-dropdown-arrow" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="custom-dropdown-menu" data-dropdown-menu>
+                            <button type="button" class="custom-dropdown-option" data-value="Да">Да</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Нет">Нет</button>
+                        </div>
+                        <input type="hidden" name="celebration_attendance" value="" data-dropdown-input required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Предпочтения по еде</label>
+                    <div class="custom-dropdown" data-dropdown>
+                        <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
+                            <span data-dropdown-value>Выберите вариант</span>
+                            <span class="custom-dropdown-arrow" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="custom-dropdown-menu" data-dropdown-menu>
+                            <button type="button" class="custom-dropdown-option" data-value="Нет особых предпочтений">Нет особых предпочтений</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Не ем мясо">Не ем мясо</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Не ем рыбу">Не ем рыбу</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Вегетарианец">Вегетарианец</button>
+                        </div>
+                        <input type="hidden" name="food_preferences" value="" data-dropdown-input>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Какой алкоголь вы предпочитаете?</label>
+                    <div class="custom-dropdown" data-dropdown>
+                        <button type="button" class="custom-dropdown-trigger" data-dropdown-trigger>
+                            <span data-dropdown-value>Выберите вариант</span>
+                            <span class="custom-dropdown-arrow" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" class="custom-dropdown-arrow-icon">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="custom-dropdown-menu" data-dropdown-menu>
+                            <button type="button" class="custom-dropdown-option" data-value="Красное вино">Красное вино</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Белое вино">Белое вино</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Шампанское">Шампанское</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Пиво">Пиво</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Виски / коньяк">Виски / коньяк</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Водка">Водка</button>
+                            <button type="button" class="custom-dropdown-option" data-value="Не буду пить алкоголь">Не буду пить алкоголь</button>
+                        </div>
+                        <input type="hidden" name="alcohol_preferences" value="" data-dropdown-input>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Песня, под которую хотите потанцевать</label>
+                    <input name="song" type="text" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Напишите песню" />
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-stone-100">Комментарий или пожелания</label>
+                    <textarea name="comment" rows="4" class="w-full rounded-2xl px-4 py-3 bg-white/10 border border-white/10 text-white outline-none" placeholder="Ваш комментарий"></textarea>
+                </div>
+
+                <button id="submitBtn"
+                        type="submit"
+                        class="w-full px-10 py-4 rounded-full text-white text-lg tracking-wide
                        bg-gradient-to-r from-[#7f1221] via-[#9B1C2C] to-[#7f1221]
                        border border-[#d4b06a]/30
                        shadow-[0_8px_30px_rgba(155,28,44,0.35)]
                        hover:shadow-[0_12px_36px_rgba(155,28,44,0.5)]
                        hover:from-[#8d1626] hover:via-[#ad2234] hover:to-[#8d1626]
                        transition duration-300">
-          Отправить анкету
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FINAL BLOCK -->
-  <section class="px-6 pb-24">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="glass rounded-3xl p-8 md:p-12">
-        <h2 class="text-4xl md:text-6xl gold mb-6">Будем ждать вас</h2>
-
-        <p class="text-lg md:text-xl text-stone-200 leading-9 max-w-2xl mx-auto mb-8">
-          Спасибо, что вы рядом с нами. Нам будет очень приятно провести этот день вместе с близкими и любимыми людьми.
-        </p>
-
-        <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto mb-8"></div>
-
-        <div class="text-stone-300 text-lg leading-8 mb-8">
-          <p>Если у вас появятся вопросы, вы можете связаться с нами:</p>
-          <p class="mt-4">Роман — <a href="tel:89527567399" class="text-rose-200 hover:text-white transition">8 952 756-73-99</a></p>
-          <p>Татьяна — <a href="tel:89069508588" class="text-rose-200 hover:text-white transition">8 906 950-85-88</a></p>
+                    Отправить анкету
+                </button>
+            </form>
         </div>
+    </section>
 
-        <p class="text-2xl md:text-3xl gold">
-          С любовью, Роман и Татьяна
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- FINAL BLOCK -->
+    <section class="px-6 pb-24">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass rounded-3xl p-8 md:p-12">
+                <h2 class="text-4xl md:text-6xl gold mb-6">Будем ждать вас</h2>
 
-  <script>
+                <p class="text-lg md:text-xl text-stone-200 leading-9 max-w-2xl mx-auto mb-8">
+                    Спасибо, что вы рядом с нами. Нам будет очень приятно провести этот день вместе с близкими и любимыми людьми.
+                </p>
+
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-[#d4b06a] to-transparent mx-auto mb-8"></div>
+
+                <div class="text-stone-300 text-lg leading-8 mb-8">
+                    <p>Если у вас появятся вопросы, вы можете связаться с нами:</p>
+                    <p class="mt-4">Роман — <a href="tel:89527567399" class="text-rose-200 hover:text-white transition">8 952 756-73-99</a></p>
+                    <p>Татьяна — <a href="tel:89069508588" class="text-rose-200 hover:text-white transition">8 906 950-85-88</a></p>
+                </div>
+
+                <p class="text-2xl md:text-3xl gold">
+                    С любовью, Роман и Татьяна
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
     const weddingDate = new Date("2026-08-09T00:00:00").getTime();
 
     function createCountdownItem(value, label) {
@@ -633,9 +636,22 @@
     });
 
     const form = document.getElementById('guest-rsvp-form');
+    const submitBtn = document.getElementById('submitBtn');
+    let isSubmitting = false;
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (isSubmitting) return;
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      submitBtn.classList.add('submit-disabled');
+      submitBtn.textContent = 'Отправляем...';
 
       const formData = new FormData(form);
 
@@ -648,13 +664,21 @@
         if (response.ok) {
           window.location.href = '/thank-you.html';
         } else {
+          isSubmitting = false;
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('submit-disabled');
+          submitBtn.textContent = 'Отправить анкету';
           alert('Не удалось отправить анкету. Попробуйте ещё раз.');
         }
       } catch (error) {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('submit-disabled');
+        submitBtn.textContent = 'Отправить анкету';
         alert('Произошла ошибка при отправке. Проверьте интернет и попробуйте снова.');
       }
     });
-  </script>
+    </script>
 
 </body>
 </html>
